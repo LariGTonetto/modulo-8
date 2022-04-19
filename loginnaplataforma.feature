@@ -7,20 +7,16 @@
 
             Contexto: Dado que eu acesse a página de Login da Plataforma EBAC-SHOP
 
-            Cenário: Usuário e Senha válidos
-            Quando eu digitar o usuário "larissa@ebac.com.br"
-            E senha "lari123"
-            Então devo ser redirecionado para a tela de Checkout
+            Esquema do Cenário: Não autenticar múltiplos usuários
+            Quando eu digitar o <usuario>
+            E a <senha>
+            Então deve exibir a mensagem de erro: "Usuário ou senha inválidos"
 
-            Cenário: Usuário inválido
-            Quando eu digitar o usuário "xxxx@ebac.com.br"
-            E senha "lari123"
-            Então deve exibir uma mensagem de alerta: "Usuário ou senha inválidos"
-
-            Cenário: Senha inválida
-            Quando eu digitar o usuário "larissa@ebac.com.br"
-            E senha "xxx123"
-            Então deve exibir uma mensagem de alerta: "Usuário ou senha inválidos"
+            Exemplos:
+            | usuario               | senha     |
+            | "larissa@ebac.com.br" | "xxx123"  |
+            | "larissa.ebac.com"    | "lari123" |
+            | "larissa.ebac.com"    | "xxx123"  |
 
             Esquema do Cenário: Autenticar múltiplos usuários
             Quando eu digitar o <usuario>
