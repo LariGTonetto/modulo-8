@@ -1,4 +1,4 @@
-#language: pt
+            #language: pt
 
             Funcionalidade: Tela de cadastro - Checkout
             Como cliente da EBAC-SHOP
@@ -29,22 +29,18 @@
             Ou Endereço de e-mail
             Então deve exibir uma mensagem de alerta: "Campos obrigatórios não preenchidos"
 
+            Esquema do Cenário: Não autenticar múltiplos usuários
+            Quando eu digitar o <usuario>
+            E a <senha>
+            Então deve exibir a mensagem de erro: "Usuário ou senha inválidos"
+
+            Exemplos:
+            | usuario               | senha     |
+            | "larissa@ebac.com.br" | "xxx123"  |
+            | "larissa.ebac.com"    | "lari123" |
+            | "larissa.ebac.com"    | "xxx123"  |
+            
             Cenário: Preencher o Campo E-mail com formato válido e senha válida
             Quando eu digitar o usuário "larissa@ebac.com.br"
             E senha "lari123"
             Então devo ser redirecionado para a tela de Checkout
-
-            Cenário: Preencher o Campo E-mail com formato válido e senha inválida
-            Quando eu digitar o usuário "larissa@ebac.com.br"
-            E senha "xxx123"
-            Então deve exibir uma mensagem de erro: "Usuário ou senha inválidos"
-
-            Cenário: Preencher o Campo E-mail com formato inválido e senha válida
-            Quando eu digitar o usuário "larissa.ebac.com"
-            E senha "lari123"
-            Então deve exibir uma mensagem de erro: "Usuário ou senha inválidos"
-
-            Cenário: Preencher o Campo E-mail com formato inválido e senha inválida
-            Quando eu digitar o usuário "larissa.ebac.com"
-            E senha "xxx123"
-            Então deve exibir uma mensagem de erro: "Usuário ou senha inválidos"
